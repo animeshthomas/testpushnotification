@@ -12,14 +12,18 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 }
 
-void main() {
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(AppInitializer());
-
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyBx8bNHS2kIyFrpqQKxPAn0DkTTGQKM3L0",
+      appId: "1:582922103376:android:fa775d6ccab9bd1097bf55",
+      messagingSenderId: "582922103376",
+      projectId: "testproject-10432",
+    ),
+  );
+  runApp(MyApp());
 }
-
 class AppInitializer extends StatelessWidget {
 
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
